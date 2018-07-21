@@ -5,6 +5,7 @@ class PostCommentsController < ApplicationController
 	@comment.post_id = @post.id
 	@comment.user_id  = current_user.id
 	@comment.save
+	redirect_to post_path(@post)
   end
 
   def edit
@@ -12,4 +13,10 @@ class PostCommentsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+    def post_comment_params
+      params.require(:post_comment).permit(:user_id,:post_id,:comment,)
+    end
 end
