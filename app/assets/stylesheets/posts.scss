@@ -1,3 +1,28 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#markdown_editor {
+  overflow: hidden;
+
+  :after {
+    clear: both;
+
+  }
+  .box{
+    float: left;
+    height: auto;
+    width: 550px;
+  }
+  #preview {
+    margin-left: 20px;
+    padding: 1px;
+    border: solid 1px black;
+    height: 266px;
+    width: 550px;
+    word-wrap: break-word;
+    line-height: 1.2;
+    overflow: auto;
+  }
+}

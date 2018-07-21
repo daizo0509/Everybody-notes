@@ -3,11 +3,7 @@
 one:
   title: MyString
   content: MyText
-  user: one
-  likes_count: 1
 
 two:
   title: MyString
   content: MyText
-  user: two
-  likes_count: 1
