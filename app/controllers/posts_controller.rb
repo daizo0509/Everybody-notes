@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
     @comments = PostComment.where(post_id: @post.id)
+    @likes = Like.where(post: params[:id])
   end
 
   def new
