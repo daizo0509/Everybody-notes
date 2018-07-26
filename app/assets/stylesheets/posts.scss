@@ -13,16 +13,40 @@
   .box{
     float: left;
     height: auto;
-    width: 550px;
+    width: 600px;
+    border-radius:15px;
   }
   #preview {
     margin-left: 20px;
     padding: 1px;
     border: solid 1px black;
-    height: 266px;
-    width: 550px;
+    height: 406px;
+    width: 600px;
     word-wrap: break-word;
     line-height: 1.2;
     overflow: auto;
+    border-radius:15px;
   }
+}
+
+.p-item{
+  border-bottom: solid 1px grey;
+}
+
+
+
+  
+
+.post-show-content{
+  margin-top:30px;
+  border-bottom: solid 1px grey;
+}
+
+
+
+
+
+
+.p-comment-form{
+  margin-top:50px;
 }

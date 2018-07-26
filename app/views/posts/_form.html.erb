@@ -1,22 +1,22 @@
 <%= form_with(model: post, local: true) do |form| %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
 
- <div class="field" id="markdown_editor">
+ <div class="col-xs-12 form-group" id="markdown_editor">
     <%= form.label :content %><br>
     <%= markdown_editor(form, :content) %>
   </div>
 
-<div class="field">
-  <%= form.label :tag_list, "Tags (separated by commas)" %><br />
+<div class="form-group" id="tag_form">
+  <%= form.label :tag_list, "Tags (カンマで区切れます)" %><br />
   <%= form.text_field :tag_list %>
 </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "投稿する" %>
   </div>
 
 <% end%>
