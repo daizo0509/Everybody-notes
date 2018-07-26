@@ -15,17 +15,20 @@
   <body>
 
 
-    <header class="navbar navbar-fixed-top navbar-inverse ">
+    <header class="navbar navbar-fixed-top navbar-default  ">
   <div class="container">
     <nav class="nav navbar-nav navbar-left">
-      <span class="text-white"><%= link_to 'Everybody-Notes', class: "text-white"  %></span>
+      
     </nav>
     <nav>
+      <ul class="nav navbar-nav navbar-left">
+        <li class="">
+            <%= link_to " Everybody-Notes",root_path %>
+          </li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li class="">
-            <%= link_to " home",root_path,class: 'glyphicon glyphicon-home' %>
-          </li>
+          
           <li class="">
             <%= link_to " write",new_post_path,class: "glyphicon glyphicon-pencil" %>
           </li>
@@ -51,5 +54,15 @@
 <div class="page-header"></div>
 
     <%= yield %>
+    <footer >
+  <div class="col-xs-12 container">
+    <div class="row">
+      <div class="footer">
+        <p>CopyRight Yuya Ohkura</p>
+      </div>
+    </div>
+  </div>
+</footer>
   </body>
+
 </html>

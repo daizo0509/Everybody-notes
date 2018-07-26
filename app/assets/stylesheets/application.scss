@@ -28,5 +28,18 @@ header .top-title span {
 }
 
 body{
-	background-color: #f6f6f6;;
+	background-color: #f6f6f6;
+}
+
+.footer {
+	margin-top: 50px;
+	border-top: solid 3px grey;
+}
+
+.navbar{
+	background-color: #FF5F17;
+	color: white;
+}
+.navbar-default .navbar-nav > li > a {
+color: #ffffff;
 }
