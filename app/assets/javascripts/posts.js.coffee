@@ -6,7 +6,7 @@ $ ->
   new Vue
     el: '#markdown_editor'
     data:
-      input: '#post_content'
+      input: '# Markdown記法で記入してください '
     filters:
       marked: marked
 

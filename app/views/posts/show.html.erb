@@ -1,49 +1,47 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
-
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= markdown @post.content %>
-</p>
-
-<p>
-  <strong>Tag:</strong>
-  <%= @post.tag_list %>
-</p>
-
+<div class="col-xs-2"><h2>sidebar</h2>
 <span id="like<%= @post.id %>">
   <%= render partial: 'likes/like', locals: { post: @post, like: @like } %>
 </span>
 
-<%= form_for [@post,@post_comment] do |f|%>
-            <div class="row">
-              <div class="col-sm-12">
-                <%= f.text_field :comment, rows:'20' ,cols:'5', class: "form-control",placeholder:"コメントをここに"%>
-              </div>
-            </div>
-            <%= f.submit"送信する", class: "btn btn-lg btnbase-1 mt-20 pull-right" %>
-<% end %>
+</div>
+<div class="col-xs-9">
 
 
-<table>
- 	<tr>
-	 	<th>User名</th>
-	 	<th>comment</th>
-	</tr>
+
+<div class="page-header">
+  	<h1><%= @post.title %></h1>
+	<h4>Tag:<%= @post.tag_list %></h4>
+  	<h3><%= @post.created_at.strftime("%Y年%m月%d日") %></h3>
+</div>
+  
+  <div class="post-show-content" ><%= markdown @post.content %></div>
+
+<div class="p-comment">
 	<% @comments.each do |c| %>
-	<tr>
-		<td><%= c.user.name%></td>
-		<td><%= c.comment %></td>
-	</tr>
+		<div class="p-comment-user"><%=link_to c.user.name %></div>
+		<div class="p-comment-content"><%= c.comment %></div>
 	<% end %>
-</table>
+</div>
+
+
+
+<div class="p-comment-form">
+	<%= form_for [@post,@post_comment] do |f|%>
+	            <div class="row">
+	              <div class="col-sm-12">
+	                <%= f.text_field :comment, rows:'20' ,cols:'5', class: "form-control",placeholder:"コメントをここに"%>
+	              </div>
+	            </div>
+	            <input class="btn btn-default" type="submit" value="送信ボタン">
+	<% end %>
+</div>
+
+
+
+
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
-
+</div>
