@@ -1,3 +1,6 @@
+
+
+
 <%= form_with(model: post, local: true) do |form| %>
 
   <div class="form-group">
@@ -5,7 +8,7 @@
     <%= form.text_field :title %>
   </div>
 
- <div class="col-xs-12 form-group" id="markdown_editor">
+ <div class="form-group" id="markdown_editor">
     <%= form.label :content %><br>
     <%= markdown_editor(form, :content) %>
   </div>
@@ -20,3 +23,7 @@
   </div>
 
 <% end%>
+</div>
+
+
+
