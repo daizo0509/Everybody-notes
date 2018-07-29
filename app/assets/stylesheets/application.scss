@@ -25,16 +25,13 @@ header .navbar-left span {
 
 header .top-title span {
 	color: white;
+
 }
 
 body{
 	background-color: #f6f6f6;
 }
 
-.footer {
-	margin-top: 50px;
-	border-top: solid 3px grey;
-}
 
 .navbar{
 	background-color: #FF5F17;
@@ -42,4 +39,24 @@ body{
 }
 .navbar-default .navbar-nav > li > a {
 color: #ffffff;
+}
+
+
+.footer {
+  
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #FF5F17;
+}
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+ 
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
 }

@@ -1,0 +1,16 @@
+<div class="col-xs-1"> </div>
+
+<div class= "col-xs-9">
+<%= form_for(@user) do |f| %>
+    <div class="field">
+    	<label for="name">name</label><br>
+    	<%=f.text_field :name %>
+    </div>
+    <div class="field">
+	    <%= f.label :email %><br />
+	    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  	</div>
+
+
+    <div class="action"><%= f.submit 'Update User' %></div>
+<% end %>
