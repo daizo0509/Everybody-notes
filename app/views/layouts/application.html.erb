@@ -16,51 +16,45 @@
 
 
     <header class="navbar navbar-fixed-top navbar-default  ">
-  <div class="container">
-    <nav class="nav navbar-nav navbar-left">
-      
-    </nav>
-    <nav>
-      <ul class="nav navbar-nav navbar-left">
-        <li class="">
-            <%= link_to " Everybody-Notes",root_path %>
-          </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? %>
-          <li class="">
-            <%= link_to " write",new_post_path,class: "glyphicon glyphicon-pencil" %>
-          </li>
-          <li class="">
-            <%= link_to current_user.name ,user_path(current_user.id),class: "glyphicon glyphicon-user" %>
-          </li>
-          <li class="">
-              <%= link_to " logout", destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out'%>
-          </li>
-        <% else %>
-          <li class="">
-              <%= link_to " home", root_path,class: 'glyphicon glyphicon-home'%>
-          </li>
-          <li class="">
-              <%= link_to " Sign Up", new_user_registration_path, class: 'glyphicon glyphicon-edit'%>
-          </li>
-          <li class="">
-              <%= link_to " Sign In", new_user_session_path, class: 'glyphicon glyphicon-log-in'%>
-          </li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
-</header>
-<div class="page-header"></div>
-
+      <div class="container">
+        <nav>
+          <ul class="nav navbar-nav navbar-left">
+            <li class="">
+                <%= link_to " Everybody-Notes",root_path %>
+              </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li class="">
+                <%= link_to " write",new_post_path,class: "glyphicon glyphicon-pencil" %>
+              </li>
+              <li class="">
+                <%= link_to current_user.name ,user_path(current_user.id),class: "glyphicon glyphicon-user" %>
+              </li>
+              <li class="">
+                  <%= link_to " logout", destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out'%>
+              </li>
+            <% else %>
+              <li class="">
+                  <%= link_to " home", root_path,class: 'glyphicon glyphicon-home'%>
+              </li>
+              <li class="">
+                  <%= link_to " Sign Up", new_user_registration_path, class: 'glyphicon glyphicon-edit'%>
+              </li>
+              <li class="">
+                  <%= link_to " Sign In", new_user_session_path, class: 'glyphicon glyphicon-log-in'%>
+              </li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container"></div>
     <%= yield %>
-<footer class="footer col-xs-2 col-xs-9 col-xs-1">
-  <div class="container">
-    <p class="text-muted">Place sticky footer content here.</p>
-  </div>
-</div>
-</footer>
+    <footer class="footer col-xs-2 col-xs-9 col-xs-1">
+      <div class="container">
+        <p class="text-muted">Place sticky footer content here.</p>
+      </div>
+    </footer>
   </body>
-
 </html>
