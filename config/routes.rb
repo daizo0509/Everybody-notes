@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'post_comments/destroy'
 	devise_for :users
 	root 'posts#index'
+	resources :users
 	resources :posts do
 		resource :post_comments, only: [:create, :destroy]
 		resource :likes, only: [:create, :destroy]

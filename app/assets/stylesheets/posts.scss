@@ -11,13 +11,14 @@
 
   }
   .box{
+    
     float: left;
     height: auto;
     width: 600px;
     border-radius:15px;
   }
   #preview {
-    margin-left: 20px;
+    
     padding: 1px;
     border: solid 1px black;
     height: 406px;
@@ -49,4 +50,7 @@
 
 .p-comment-form{
   margin-top:50px;
+  width:800px;
+  height:150px;
+
 }
