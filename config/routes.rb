@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'post_comments/edit'
   get 'post_comments/destroy'
 	devise_for :users
+	resources :users
 	root 'posts#index'
 	resources :posts do
 		resource :post_comments, only: [:create, :destroy]
