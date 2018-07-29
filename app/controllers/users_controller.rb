@@ -5,9 +5,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts 
-    @comments = @user.post_comments
-   
+    @posts = @user.posts.order(id: "DESC")
+    a = @user.post_comments
+    @comments = a.group(:post_id).order(id: "DESC")
   end
 
   def edit
