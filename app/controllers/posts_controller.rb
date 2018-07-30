@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
+  before_action :set_search
 
   def index
     @posts = Post.all.order(id: "DESC")
+    @search = Tag.ransack(params[:q]) 
   end
 
   def show
@@ -48,6 +50,10 @@ class PostsController < ApplicationController
 
   def post_params
       params.require(:post).permit(:title, :content,:user_id,:tag_list)
+  end
+
+  def set_search
+      @search = Tagging.ransack(params[:q])
   end
 
 end
