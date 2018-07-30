@@ -1,12 +1,11 @@
 <p id="notice"><%= notice %></p>
-<div class="col-xs-2"><h2>SideBar</h2></div>
+<div class="col-xs-3"> </div>
 
-
-<div class="col-xs-9">
+<div class="col-xs-7 user-posts ">
 	<h2><%=@user.name %>さんのページ</h2>
 
 	<h2 class="page-header">投稿一覧</h2>
-	<table class="table">
+	
 	    <% @posts.each do |post| %>
 	    	<div class="p-item">
 			    <div class="p-title">
@@ -16,9 +15,9 @@
 			    <p><%= post.tag_list %></p>
 		  	</div>
 		<% end %>
-	</table>
-	<h2 class="page-header">コメント記事一覧</h2>
-	<table class="table">
+	
+	<h2 class="page-header ">コメント記事一覧</h2>
+	
 	    <% @comments.each do |comments| %>
 	    	<div class="p-item">
 			    <div class="p-title">
@@ -26,9 +25,8 @@
 			    </div>
 			    <p>by <%= comments.post.user.name %>  <%= comments.post.likes_count %>いいね！ at <%= comments.post.created_at.strftime("%Y年%m月%d日%H時%M分") %></p>
 			    <p><%= comments.post.tag_list %></p>
-
 		  	</div>
 		<% end %>
-	</table>
+
 </div>
 
