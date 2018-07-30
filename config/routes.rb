@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :users
+
+  get 'searches/index'
   get 'likes/create'
   get 'likes/destroy'
   get 'post_comments/create'
   get 'post_comments/edit'
   get 'post_comments/destroy'
-	devise_for :users
 	resources :users
 	root 'posts#index'
 	resources :users

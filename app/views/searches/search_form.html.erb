@@ -1,0 +1,9 @@
+<%= search_form_for @search, url: searches_index_path do |f| %>
+	<%= fields_for @tags do |tags| %>
+  <div class="form-group">
+    <%= f.label "タグ検索" %>
+    <%= f.search_field :name_cont, class: 'form-control',value: params.dig(:q, :name_cont) %>
+  </div>
+  <div class="actions"><%= f.submit "Search" %></div>
+  	<% end %>
+<% end %>
