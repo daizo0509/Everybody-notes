@@ -1,8 +1,8 @@
 class Post < ApplicationRecord
 	attr_accessor  :tag_list
-	belongs_to :user
-	has_many :post_comments, dependent: :destroy
-	has_many :likes, dependent: :destroy
+	belongs_to :user 
+	has_many :post_comments
+	has_many :likes
 	  def like_user(user_id)
 	   likes.find_by(user_id: user_id)
 	  end
