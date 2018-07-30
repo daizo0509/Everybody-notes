@@ -68,3 +68,4 @@ gem 'pry-rails'
 gem 'jquery-rails'
 gem 'ransack'
 gem 'bootstrap-sass'
+gem "kaminari"

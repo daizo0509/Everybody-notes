@@ -15,7 +15,7 @@
 			    <p><%= post.tag_list %></p>
 		  	</div>
 		<% end %>
-	
+		<%= paginate @posts, class: "pagenate" %>
 	<h2 class="page-header ">コメント記事一覧</h2>
 	
 	    <% @comments.each do |comments| %>
@@ -27,6 +27,6 @@
 			    <p><%= comments.post.tag_list %></p>
 		  	</div>
 		<% end %>
-
+		<%= paginate @comments, class: "pagenate" %>
 </div>
 
