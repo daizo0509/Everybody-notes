@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :set_search
 
   def index
-    @posts = Post.all.order(id: "DESC")
+    @posts = Post.all.order(id: "DESC").page(params[:page]).per(10)
     @search = Tag.ransack(params[:q]) 
   end
 

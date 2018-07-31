@@ -1,36 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+<p id="notice"><%= notice %></p>
+<div class="col-xs-3"><h2>SideBar</h2>
+<%= render 'searches/search_form' %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Tag</th>
-      
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="col-xs-7 index-box">
+	<h2 class="page-header">投稿一覧</h2>
+	<table class="table">
+	    <% @posts.each do |post| %>
+	    	<div class="p-item">
+			    <div class="p-title">
+			    	<h3><%=link_to post.title,post %></h3>
+			    </div>
+			    <p>by <%= post.user.name %>  <%= post.likes_count %>いいね！ at <%= post.created_at.strftime("%Y年%m月%d日%H時%M分") %></p>
+			    <p class="tag-list" ><%= post.tag_list.each do|tag| %><p>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-      	<td><%= post.id %></td>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= post.tag_list %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
+		  	</div>
+		<% end %>
+		</table>
+	
+</div>
 
 
