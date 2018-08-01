@@ -15,6 +15,13 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    if admin_signed_in?
+      redirect_to admin_page_top_path
+    else
+      redirect_to root_path
+    end
   end
 
   def update
