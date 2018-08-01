@@ -16,6 +16,7 @@
     height: auto;
     width: 600px;
     border-radius:15px;
+    background-color:white;
   }
   #preview {
     
@@ -27,11 +28,13 @@
     line-height: 1.2;
     overflow: auto;
     border-radius:15px;
-    background-color:white;
+ 
   }
 }
 
-
+.post-box{
+  background-color:white;
+}
 
 .p-item{
   border-bottom: solid 1px grey;
@@ -44,6 +47,7 @@
 .post-show-content{
   margin-top:30px;
   border-bottom: solid 1px grey;
+  background-color:white;
 }
 
 
@@ -53,7 +57,7 @@
 
 .p-comment-form{
   margin-top:50px;
-  width:800px;
+  width:650px;
   height:150px;
 
 }
