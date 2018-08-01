@@ -2,12 +2,15 @@ class AdminPageController < ApplicationController
   def top
   end
 
-  def postsindex
+  def posts
+  	@posts = Post.all.order(id: "DESC").page(params[:page]).per(10)
   end
 
-  def usersindex
+  def users
+  	@users = User.all
   end
 
-  def tagsindex
+  def tags
+  	@tags = Tag.all
   end
 end

@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :users
   get 'admin_page/top'
-  get 'admin_page/posts_index'
-  get 'admin_page/users_index'
-  get 'admin_page/tags_index'
+  get 'admin_page/posts'
+  get 'admin_page/users'
+  get 'admin_page/tags'
   get 'searches/index'
   get 'likes/create'
   get 'likes/destroy'
