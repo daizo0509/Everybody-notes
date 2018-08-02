@@ -9,9 +9,12 @@ class PostCommentsController < ApplicationController
   end
 
   def edit
+    @comment = PostComment.find(params[:id])
   end
 
   def destroy
+     @comment = PostComment.find(params[:id])
+      @comment.destroy
   end
 
   private
