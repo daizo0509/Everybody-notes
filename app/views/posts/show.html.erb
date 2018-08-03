@@ -22,6 +22,7 @@
 		<% @comments.each do |c| %>
 			<div class="p-comment-user"><%=link_to c.user.name,user_path(c.user)%></div>
 			<div class="p-comment-content"><%= c.comment %></div>
+			
 		<% end %>
 	</div>
 
