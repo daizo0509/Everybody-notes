@@ -1,2 +1,10 @@
-<h1>PostComments#edit</h1>
-<p>Find me in app/views/post_comments/edit.html.erb</p>
+<div class=" col-xs-3"></div>
+<div class=" col-xs-7"><h1>レビュー編集画面</h1>
+	<%= form_for([@post,@comment]) do |c| %>
+
+        <p>感想</p>
+        <%= c.text_area :comment ,size: "100x10"%>
+        
+    <%= c.submit '編集完了' %>
+    <% end %>
+</div>
