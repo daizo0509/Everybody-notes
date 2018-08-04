@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 <div class="col-xs-3"><h2>SideBar</h2>
-<%= render 'searches/search_form' %>
+
+	<div><%= render 'searches/search_form' %>
+		<%= render 'users/user_info',user: @user %>
+			
+	</div>
+
 </div>
 
 <div class="col-xs-7"><h1>投稿を削除しました。</h1></div>

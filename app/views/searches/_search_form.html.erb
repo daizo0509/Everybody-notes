@@ -1,3 +1,4 @@
+
 <%= search_form_for @search, url: searches_index_path do |f| %>
 	<%= fields_for @tags do |tags| %>
   <div class="form-group">
@@ -7,3 +8,4 @@
   <div class="actions"><%= f.submit "Search" %></div>
   	<% end %>
 <% end %>
+</div>

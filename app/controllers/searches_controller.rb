@@ -1,5 +1,6 @@
 class SearchesController < ApplicationController
   def index
+    @user = current_user
   	groupings = []
 
      words = params[:q].delete(:name_cont) if params[:q].present?
