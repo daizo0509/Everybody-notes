@@ -10,7 +10,7 @@ class SearchesController < ApplicationController
         params[:q][:groupings][i] = { name_cont: word }
       end
     end
-    
+
     @arr = []  
 
     params[:q]["groupings"].count.times do |i|  #入力された分だけ繰り返す
