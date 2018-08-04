@@ -1,5 +1,6 @@
 class SearchesController < ApplicationController
   def index
+    @user = current_user
   	groupings = []
 
      words = params[:q].delete(:name_cont) if params[:q].present?
@@ -10,7 +11,7 @@ class SearchesController < ApplicationController
         params[:q][:groupings][i] = { name_cont: word }
       end
     end
-    
+
     @arr = []  
 
     params[:q]["groupings"].count.times do |i|  #入力された分だけ繰り返す
@@ -30,8 +31,6 @@ class SearchesController < ApplicationController
       #なんでPostsのレコードが引っ張ってこれるか？
       #[]がfind_byがかかっている状態と同じ状態で入っているのでtag_idに紐ずくpostsテーブルのデータがtaggingテーブ経由して持ってこれるようになっている。
       #[i][n]はcont検索で引っかかったタグのタグのどの階層まで拾うかを示していて今回の場合は２階層まで拾うので検索にかけたワードとcont検索に引っかかったワードを１つまで拾ってきて２つで1組になりそのセットがcont検索に引っかかった分だけ表示される仕組み。
-   @posts = a.uniq
-    binding.pry
+    @posts = a.uniq
   end
-  
 end

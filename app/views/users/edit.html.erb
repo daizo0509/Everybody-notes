@@ -6,6 +6,8 @@
     	<label for="name">name</label><br>
     	<%=f.text_field :name %>
     </div>
+    <label class="" >ProfileImage</label>
+    <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
     <div class="field">
 	    <%= f.label :email %><br />
 	    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

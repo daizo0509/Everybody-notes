@@ -4,7 +4,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order(id: "DESC").page(params[:page]).per(10)
-    @search = Tag.ransack(params[:q]) 
+    @search = Tag.ransack(params[:q])
+    @user = current_user
   end
 
   def show
@@ -12,6 +13,7 @@ class PostsController < ApplicationController
     @post_comment = PostComment.new
     @comments = PostComment.where(post_id: @post)
     @likes = Like.where(post: params[:id])
+    @user = User.find_by(params[:user_id])
   end
 
   def new
@@ -27,14 +29,15 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @post.save
+    redirect_to post_path(@post.id)
     
     
   end
 
   def update
-        @post = Post.find(params[:id])
-        @post.update(post_params)
-        redirect_to post_path(@post.id)
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    redirect_to post_path(@post.id)
   end
 
   def destroy

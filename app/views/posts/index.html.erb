@@ -1,12 +1,15 @@
 
-<div> </div>
 <p id="notice"><%= notice %></p>
 <div class="col-xs-3"><h2>SideBar</h2>
-<%= render 'searches/search_form' %>
+
+	<div><%= render 'searches/search_form' %>
+		<%= render 'users/user_info',user: @user %>
+	</div>
+
 </div>
 
 <div class="col-xs-7 index-box">
-	<h2 class="page-header">投稿一覧</h2>
+	<h2 class="page-header">みんなのノート</h2>
 	<table class="table">
 	    <% @posts.each do |post| %>
 	    	<div class="p-item">
