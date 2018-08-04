@@ -21,11 +21,11 @@
 		<% @comments.each do |c| %>
 			<div class="p-comment-user"><%=link_to c.user.name,user_path(c.user)%></div>
 			<div class="p-comment-content"><%= c.comment %></div>
+
 			<% if c.user == current_user %>
                     <%= link_to "編集する", edit_post_post_comment_path(c.post_id,c) %>
-                    <%= link_to "投稿を削除する", post_post_comment_path(c.post_id,c), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                    <%= link_to "ノートを消する", post_post_comment_path(c.post_id,c), method: :delete, "data-confirm" => "本当に消しますか？" %>
                 <% end %>
-			
 		<% end %>
 	</div>
 

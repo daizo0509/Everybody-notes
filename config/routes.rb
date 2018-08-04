@@ -9,9 +9,6 @@ Rails.application.routes.draw do
   get 'searches/index'
   get 'likes/create'
   get 'likes/destroy'
-  get 'post_comments/create'
-  get 'post_comments/edit'
-  get 'post_comments/destroy'
 	root 'posts#index'
 	resources :users
 	resources :posts do
