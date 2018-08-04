@@ -9,9 +9,24 @@ class PostCommentsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:post_id])
+    @comment = PostComment.find(params[:id])
+    if @comment.user != current_user
+      redirect_to post_path(@comment.post_id), notice:'＜error＞投稿者以外は編集することができません'      
+    end
+  end
+  
+  def update
+    comment = PostComment.find(params[:id])
+    comment.update(post_comment_params)
+    redirect_to post_path(comment.post_id)
   end
 
+
   def destroy
+    comment = PostComment.find(params[:id])
+    comment.destroy
+    redirect_to post_path(comment.post_id)
   end
 
   private
