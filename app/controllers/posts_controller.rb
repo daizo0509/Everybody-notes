@@ -13,7 +13,9 @@ class PostsController < ApplicationController
     @post_comment = PostComment.new
     @comments = PostComment.where(post_id: @post)
     @likes = Like.where(post: params[:id])
-    @user = User.find_by(params[:user_id])
+    user = @post.user_id
+    @user = User.find(user)
+    binding.pry
   end
 
   def new
