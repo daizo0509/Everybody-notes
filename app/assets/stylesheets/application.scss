@@ -16,29 +16,35 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+
+
 header .navbar-left span {
     font-size: 20px;
     padding-top: 10px;
-    color: white;
+    color: black;
 }
 
 
 header .top-title span {
-	color: white;
+  background-color:#FF5F17;
+  
+	color: black;
 
 }
 
 body{
-	background-color: #f6f6f6;
+	background-image: url('mokuseinotukue.jpg');
+  background-size: cover;
 }
+
 
 
 .navbar{
-	background-color: #FF5F17;
-	color: white;
+  background-color: white;
+	color: black;
 }
 .navbar-default .navbar-nav > li > a {
-color: #ffffff;
+color: black;
 }
 
 
@@ -68,11 +74,12 @@ body > .container {
 	width: 100px;
 }
 .index-box{
-	background-color: white;
+	background-color: rgba(255,255,255,0.3);
+  color:black;
 }
 
 .user-info-box{
-  background-color: white;
+  background-color: rgba(255,255,255,0.3);
   border-radius:15px;
 }
 
