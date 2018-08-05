@@ -1,15 +1,16 @@
 <% if user_signed_in? %>
 
   <% if @post.like_user(current_user.id) %>
-    <%= button_to post_likes_path(post_id: post.id), method: :delete, id: "like-button", remote: true do %>
-      <%= image_tag("like.svg") %>
+    
+    <%= button_to post_likes_path(post_id: post.id), method: :delete, id: "like-button", class:" btn btn-success glyphicon glyphicon-paperclip col-xs-1", remote: true do %>
+      
     <% end %>
-    <%= @post.likes_count%>いいね！
+    <h3><%= @post.likes_count%>人にコピーされてます！</h3>
   <% else %>
-    <%= button_to post_likes_path(@post), id: "like-button", remote: true do %>
-      <%= image_tag("notlike.svg") %>
+    <%= button_to post_likes_path(@post), id: "like-button", class:" btn btn-default glyphicon glyphicon-paperclip col-xs-1",remote: true do %>
+      
     <% end %>
-    <%= @post.likes_count %>いいね！
+    <h3><%= @post.likes_count %>人にコピーされてます！</h3>
   <% end %>
   
   <%#= image_tag("notlike.svg") %>
