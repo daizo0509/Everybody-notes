@@ -15,7 +15,6 @@ class PostsController < ApplicationController
     @likes = Like.where(post: params[:id])
     user = @post.user_id
     @user = User.find(user)
-    binding.pry
   end
 
   def new
