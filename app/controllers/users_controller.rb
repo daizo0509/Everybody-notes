@@ -5,9 +5,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id]) 
-    @posts = @user.posts.order(id: "DESC").page(params[:page]).per(10)
+    @posts = @user.posts.order(id: "DESC").page(params[:page]).per(3)
     a = @user.post_comments
-    @comments = a.group(:post_id).order(id: "DESC").page(params[:page]).per(5)
+    @comments = a.group(:post_id).order(id: "DESC").page(params[:page]).per(3)
   end
 
   def edit
