@@ -31,4 +31,5 @@ class Post < ApplicationRecord
     	description[0, 9] + '...'
   	end
 
+
 end
