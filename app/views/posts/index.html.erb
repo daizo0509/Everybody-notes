@@ -1,6 +1,6 @@
 
 <p id="notice"><%= notice %></p>
-<div class="col-xs-3"><h2>SideBar</h2>
+<div class="col-xs-3 side-bar"><h2>SideBar</h2>
 
 	<div><%= render 'searches/search_form' %>
 		<%= render 'users/user_info',user: @user %>
@@ -18,11 +18,15 @@
 			    	<h3><%=link_to post.title,post %></h3>
 			    </div>
 			    <p>
-			    	by <%= link_to post.user.name,user_path(post.user) %> 
+			    	by <%= link_to post.user.name,user_path(post.user), class:"user-name" %> 
 			    	at <%= post.created_at.strftime("%Y年%m月%d日") %>
 			    	<span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span><%= post.likes_count %>
 			    	</p>
-			    <span class="glyphicon glyphicon-tags" aria-hidden="true"></span> <%= post.tag_list %>
+			    <span class="glyphicon glyphicon-tags" aria-hidden="true">
+			    	<% post.tags.each do |tag| %>
+			    		<div class="label label-info"><%= tag.name %></div>
+			    	<% end %>
+			    </span> 
 		  	</div>
 		<% end %>
 		</table>

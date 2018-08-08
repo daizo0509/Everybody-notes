@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-	<div class="col-xs-3"><h2>SideBar</h2>
+	<div class="col-xs-3 side-bar"><h2>SideBar</h2>
 		<div><%= render 'searches/search_form' %>
 			<%= render 'users/user_info',user: @user %>
 		
 		
 		</div>
 	</div>
-<div class="col-xs-8 post-box">
+<div class="col-xs-7 col-xs-offset-1 post-box">
 	<div class="page-header">
 	  	<h1><%= @post.title %></h1>
 	  	<div id="like<%= @post.id %>">
@@ -36,7 +36,7 @@
 
 
 
-	<div class="p-comment">
+	<div class="p-comment-form">
 		<%= form_for [@post,@post_comment] do |f|%>
 		            <div class="row">
 		              <div class="col-sm-12">
@@ -48,5 +48,5 @@
 	</div>
 
 
-	<%= link_to 'Back', posts_path %>
+	<%= link_to 'Back', posts_path class:"bottom-button" %>
 	</div>

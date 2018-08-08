@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
-<div class="col-xs-3">
+<div class="col-xs-3 side-bar"><h2>SideBar</h2>
 	<div><%= render 'searches/search_form' %>
 		<%= render 'users/user_info',user: @user %>
 			
 	</div>
 </div>
 
-<div class="col-xs-7 index-box">
-	<h2 class="page-header">投稿一覧</h2>
+<div class="col-xs-7  col-xs-offset-1 index-box">
+	<h2 class="page-header">検索結果</h2>
 	<table class="table">
 	    <% @posts.each do |post| %>
 	    	<div class="p-item">
@@ -15,8 +15,11 @@
 			    	<h3><%=link_to post.title,post %></h3>
 			    </div>
 			    <p>by <%= post.user.name %>  <%= post.likes_count %>いいね！ at <%= post.created_at.strftime("%Y年%m月%d日%H時%M分") %></p>
-			    <p class="tag-list" ><%= post.tag_list %></p>
-
+				    <span class="glyphicon glyphicon-tags" aria-hidden="true">
+				    	<% post.tags.each do |tag| %>
+				    		<div class="label label-info"><%= tag.name %></div>
+				    	<% end %>
+				    </span>
 		  	</div>
 		<% end %>
 	</table>

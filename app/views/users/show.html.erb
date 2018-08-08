@@ -40,8 +40,13 @@
 				    <p>by <%= post.user.name %>  
 				    	<br><%= post.likes_count %>人がコピー！ 
 				    	<br>at <%= post.created_at.strftime("%Y年%m月%d日%H時%M分") %></p>
-				    <p><%= post.tag_list %></p>
-				    <%= link_to 'Edit', edit_post_path(post) %>|
+				    <span class="glyphicon glyphicon-tags" aria-hidden="true">
+					   	<% post.tags.each do |tag| %>
+				    		<div class="label label-info"><%= tag.name %></div>
+				    	<% end %>
+				    </span>
+			    	<br>
+				    <%= link_to 'Edit', edit_post_path(post) %> |
 				    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
 			  	</div>
 			<% end %>
@@ -52,10 +57,15 @@
 				    	<h3><%=link_to post.title,post %></h3>
 				    </div>
 				    <p>by <%= post.user.name %>  <%= post.likes_count %>いいね！ at <%= post.created_at.strftime("%Y年%m月%d日%H時%M分") %></p>
-				    <p><%= post.tag_list %></p>
+				   	<span class="glyphicon glyphicon-tags" aria-hidden="true">
+				    	<% post.tags.each do |tag| %>
+				    		<div class="label label-info"><%= tag.name %></div>
+				    	<% end %>
+				    </span>
 			  	</div>
 			<% end %>
 		<% end %>
+
 		<%= paginate @posts, class: "pagenate" %>
 	<h2 class="page-header "><%=@user.name %>さんのメモ</h2>
 	
@@ -65,7 +75,11 @@
 			    	<h3><%=link_to comments.post.title %></h3>
 			    </div>
 			    <p>by <%= comments.post.user.name %>  <%= comments.post.likes_count %>いいね！ at <%= comments.post.created_at.strftime("%Y年%m月%d日%H時%M分") %></p>
-			    <p><%= comments.post.tag_list %></p>
+			    <span class="glyphicon glyphicon-tags" aria-hidden="true">
+				    <% comments.post.tags.each do |tag| %>
+					    <div class="label label-info"><%= tag.name %></div>
+					<% end %>
+				</span>
 		  	</div>
 		<% end %>
 		<%= paginate @comments, class: "pagenate" %>
