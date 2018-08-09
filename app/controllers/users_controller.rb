@@ -11,7 +11,18 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    if admin_signed_in?
+        @user = User.find(params[:id])
+    else
+      if @user = User.exists?(params[:id])
+         @user = User.find(params[:id])
+        if @user != current_user
+          redirect_to user_path(@user),alert:"他のユーザーを編集する事はできません"
+        end
+      else
+          redirect_to user_path(current_user), alert:"存在しないユーザーです"
+        end
+      end
   end
 
   def destroy
@@ -23,13 +34,16 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
   end
+
   def update
       @user = User.find(params[:id])
-      if @user.update(user_params)
-        redirect_to user_path(current_user.id)
-      else
-        redirect_to root_path
+      if admin_signed_in? or @user == current_user
+        if @user.update(user_params)
+           redirect_to user_path(@user), notice:"ユーザー情報編集が完了しました"
+        else
+         redirect_to edit_user_path(@user), alert:"ユーザー情報編集に失敗しました"
       end
+    end
   end
 
   private

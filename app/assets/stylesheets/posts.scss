@@ -11,10 +11,10 @@
 
   }
   .box{
-    
     float: left;
     height: auto;
-    width: 600px;
+    width: 622px;
+   
     border-radius:15px;
     background-color:rgba(255,255,255,0.5);
   }
@@ -32,12 +32,24 @@
   }
 }
 
+.post-new{
+  background-color:rgba(255,255,255,0.4);
+}
 .post-box{
   background-color:rgba(255,255,255,0.5);
   color:black;
   border-radius:15px;
 }
-
+.new-post-title{
+  border-radius:5px;
+  width:500px;
+  heght:20px;
+}
+.new-post-tag{
+  border-radius:5px;
+  width:400px;
+  heght:20px;
+}
 .p-item {
     border-bottom: solid 1px black;
     color: black;
@@ -46,16 +58,23 @@
 
 .post-show-content{
   margin-top:30px;
-  border-bottom: solid 1px grey;
+  border-bottom: solid 1px black;
   
 }
 
 
-
+.p-comment{
+  margin: 30px 30px;
+  padding: 10px;
+  border: thin solid ;
+  border-radius:15px;
+}
 
 .p-comment-form{
-  margin-top:50px;
+  margin-top:30px;
   width:650px;
   height:150px;
-
+}
+.btn btn-default btn-sm{
+  margin: 0 auto;
 }
