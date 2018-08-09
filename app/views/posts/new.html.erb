@@ -1,7 +1,8 @@
+<div class= "col-xs-12 post-new">
+	<h2 class="page-header">ノートをかく！</h2>
 
-<h2 class="page-header">ノートをかく！</h2>
+		<%= render 'form', post: @post %>
 
-	<%= render 'form', post: @post %>
-
-	<%= link_to 'Back', posts_path %>
+		<h4><button class="btn btn-primary center-block">TOPに戻る<%=link_to "", posts_path %></button></h4>
+</div>
 

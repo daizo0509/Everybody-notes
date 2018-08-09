@@ -13,7 +13,12 @@
 	  	<div id="like<%= @post.id %>">
 		  <%= render partial: 'likes/like', locals: { post: @post, like: @like } %>
 		</div>
-		<h4>Tag:<%= @post.tag_list %><span id="like<%= @post.id %>">
+		<h4><span class="glyphicon glyphicon-tags" aria-hidden="true">
+			    	<% @post.tags.each do |tag| %>
+			    		<div class="label label-info"><%= tag.name %></div>
+			    	<% end %>
+			</span>
+			<span id="like<%= @post.id %>"></span>
 		</h4>
 		
 	  	<h3><%= @post.created_at.strftime("%Y年%m月%d日") %></h3>
@@ -22,31 +27,32 @@
 	  
 	  <div class="post-show-content" ><%= markdown @post.content %></div>
 
-	<div class="p-comment">
+
+	<h3 class="chapter-title text-center">--コメント--</h3>
 		<% @comments.each do |c| %>
-			<div class="p-comment-user"><%=link_to c.user.name,user_path(c.user)%></div>
-			<div class="p-comment-content"><%= c.comment %></div>
+			<div class="p-comment">
+				<div class="p-comment-user">名前：<%=link_to c.user.name,user_path(c.user)%></div>
+				<br>
+				<div class="p-comment-content">コメント：<div><%= c.comment %></div></div>
 
-			<% if c.user == current_user %>
-                    <%= link_to "編集する", edit_post_post_comment_path(c.post_id,c) %>
-                    <%= link_to "ノートを消する", post_post_comment_path(c.post_id,c), method: :delete, "data-confirm" => "本当に消しますか？" %>
-                <% end %>
+				<% if c.user == current_user %>
+	                <%= link_to "編集する", edit_post_post_comment_path(c.post_id,c) %>
+	                <%= link_to "ノートを消する", post_post_comment_path(c.post_id,c), method: :delete, "data-confirm" => "本当に消しますか？" %>
+	            <% end %>
+			</div>
 		<% end %>
-	</div>
 
 
 
-	<div class="p-comment-form">
+	<div class="">
 		<%= form_for [@post,@post_comment] do |f|%>
-		            <div class="row">
-		              <div class="col-sm-12">
-		                <%= f.text_field :comment, class: "p-comment-form", placeholder:"コメントをここに"%>
+		              <div class="col-xs-12">
+		                <%= f.text_field :comment, class: "p-comment-form center-block", placeholder:"コメントをここに"%>
 		              </div>
-		            </div>
-		            <input class="btn btn-default" type="submit" value="送信ボタン">
+		        <input class="btn btn-default btn-sm center-block" type="submit" value="送信ボタン">
 		<% end %>
 	</div>
 
 
-	<%= link_to 'Back', posts_path class:"bottom-button" %>
-	</div>
+	<h4><button class="btn btn-primary center-block">TOPに戻る<%=link_to "", posts_path %></button></h4>
+</div>

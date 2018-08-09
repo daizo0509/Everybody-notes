@@ -1,29 +1,28 @@
 
 
+  <%= form_with(model: post, local: true) do |form| %>
 
-<%= form_with(model: post, local: true) do |form| %>
+    <div class="form-group">
+      <%= form.label :title %>
+      <%= form.text_field :title,class:"new-post-title" %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+    <div class="form-group" id="tag_form">
+      <%= form.label :tag_list %>
+      <%= form.text_field :tag_list,class:"new-post-tag" %>
+    </div>
+    
+    <div class="form-group" id="markdown_editor">
+      <%= form.label :content %><br>
+      <%= markdown_editor(form, :content) %>
+    </div>
 
- <div class="form-group" id="markdown_editor">
-    <%= form.label :content %><br>
-    <%= markdown_editor(form, :content) %>
-  </div>
+    <div class="actions">
+      <%= form.submit "投稿する" ,class:"btn btn-success center-block" %>
+    </div>
 
-<div class="form-group" id="tag_form">
-  <%= form.label :tag_list, "Tags (カンマで区切れます)" %><br />
-  <%= form.text_field :tag_list  %>
-</div>
+  <% end%>
 
-  <div class="actions">
-    <%= form.submit "投稿する" %>
-  </div>
-
-<% end%>
-</div>
 
 
 

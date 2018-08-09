@@ -9,6 +9,8 @@ class Post < ApplicationRecord
 	has_many :taggings,foreign_key: :post_id, dependent: :destroy
 	has_many :tags, through: :taggings,foreign_key: :post_id, dependent: :destroy
 
+	validates :title, presence: true
+
 	def self.tagged_with(name)
 		Tag.find_by_name!(name).post
 	end
