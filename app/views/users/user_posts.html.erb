@@ -1,9 +1,4 @@
-<% if flash[:alert] %>
-	<div class="alert alert-danger col-xs-10 col-xs-offset-1 " role="alert"><%= flash[:alert] %></div>
-<% end %>
-<% if notice %>
-<p class= "alert alert-info col-xs-10 col-xs-offset-1" id="notice"><%= notice %></p>
-<% end %>
+<p id="notice"><%= notice %></p>
 <div class="col-xs-3 side-bar"><h2>SideBar</h2>
 
 	<div><%= render 'searches/search_form' %>
@@ -13,7 +8,7 @@
 </div>
 
 <div class="col-xs-7  col-xs-offset-1 index-box">
-	<h2 class="page-header">みんなのノート</h2>
+	<h2 class="page-header"><%= @user.name %>が書いたノート</h2>
 	<table class="">
 		<div>
 	    <% @posts.each do |post| %>
@@ -34,5 +29,8 @@
 		  	</div>
 		<% end %>
 		</table>
-	<div><h4><%= paginate @posts, class: "pagenate" %></h4></div>
+	<h4><%= paginate @posts, class: "pagenate" %></h4>
+	<div class="text-center button">
+		<%= link_to "戻る" , user_path(@user),class:"btn btn-primary" %>
+	</div>
 </div>

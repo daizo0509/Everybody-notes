@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   get 'likes/create'
   get 'likes/destroy'
 	root 'posts#index'
+  get 'user/:id/user_posts' => 'users#user_posts', as:"user_posts"
+  get 'user/:id/user_likes' => 'users#user_likes',as:"user_likes"
+  get 'user/:id/user_comments' => 'users#user_comments',as:"user_comments"
 	resources :users
+
 	resources :posts do
 		resources :post_comments
 		resource :likes, only: [:create, :destroy]

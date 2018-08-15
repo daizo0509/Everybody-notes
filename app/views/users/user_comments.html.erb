@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+	<div class="col-xs-3 side-bar"><h2>SideBar</h2>
+
+		<div><%= render 'searches/search_form' %>
+			<%= render 'users/user_info',user: @user %>
+		</div>
+
+	</div>
+	<div class="col-xs-7  col-xs-offset-1 index-box">
+		<h2 class="page-header "><%=@user.name %>さんのメモ</h2>
+	    <% @comments.each do |comments| %>
+	    	<div class="p-item">
+			    <div class="p-title">
+			    	<h3><%=link_to comments.post.title,post_path(comments.post) %></h3>
+			    </div>
+			    <p>by <%= comments.post.user.name %>  <%= comments.post.likes_count %>いいね！ at <%= comments.post.created_at.strftime("%Y年%m月%d日") %></p>
+			    <span class="glyphicon glyphicon-tags" aria-hidden="true">
+				    <% comments.post.tags.each do |tag| %>
+					    <div class="label label-info"><%= tag.name %></div>
+					<% end %>
+				</span>
+		  	</div>
+		<% end %>
+		<h4><%= paginate @comments, class: "pagenate" %></h4>
+		<div class="text-center">
+			<%= link_to "戻る" , user_path(@user),class:"btn btn-primary" %>
+		</div>
+	</div>
