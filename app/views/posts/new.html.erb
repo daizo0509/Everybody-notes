@@ -2,7 +2,8 @@
 	<h2 class="page-header">ノートをかく！</h2>
 
 		<%= render 'form', post: @post %>
-
-		<h4><button class="btn btn-primary center-block">TOPに戻る<%=link_to "", posts_path %></button></h4>
+	<div class="text-center">
+	<%= link_to "TOPに戻る" , root_path,class:"btn btn-primary" %>
+	</div>
 </div>
 

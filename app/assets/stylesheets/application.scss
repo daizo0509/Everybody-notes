@@ -17,6 +17,10 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+html {
+ position: relative;
+ min-height: 100%;
+}
 
 
 header .navbar-left span {
@@ -37,6 +41,7 @@ body{
 	background-image: url('mokuseinotukue.jpg');
   background-size: cover;
   font-family:Hiragino Maru Gothic Pro;
+
 }
 
 
@@ -49,13 +54,14 @@ color: black;
 }
 
 
+
 .footer {
-  
+  margin-top:20px;
   width: 100%;
-  /* Set the fixed height of the footer here */
   height: 60px;
   background-color: white;
-
+  position:absolute;
+  bottom:-60px;
 }
 .text-muted {
     color: black;
@@ -78,6 +84,7 @@ body > .container {
 .search_form{
 	width: 100px;
 }
+
 .index-box{
 	background-color: rgba(255,255,255,0.5);
   color:black;
@@ -110,4 +117,9 @@ body > .container {
 
 .user-name{
   color:black;
+}
+
+.text-center{
+  margin-top:15px;
+  margin-bottom: 15px;
 }

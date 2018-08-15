@@ -4,10 +4,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id]) 
-    @posts = @user.posts.order(id: "DESC").page(params[:page]).per(3)
-    a = @user.post_comments
-    @comments = a.group(:post_id).order(id: "DESC").page(params[:page]).per(3)
+    if@user = User.exists?(params[:id])
+      @user = User.find(params[:id])
+      @posts = @user.posts.last(3).reverse
+      a = @user.post_comments
+      @comments = a.group(:post_id).last(3).reverse
+      @like = Like.where(user_id:@user).last(3).reverse
+    else
+      redirect_to root_path,alert:"存在しないユーザーです"
+    end
   end
 
   def edit
@@ -17,10 +22,10 @@ class UsersController < ApplicationController
       if @user = User.exists?(params[:id])
          @user = User.find(params[:id])
         if @user != current_user
-          redirect_to user_path(@user),alert:"他のユーザーを編集する事はできません"
+          redirect_to user_path(@user),notice:"他のユーザーを編集する事はできません"
         end
       else
-          redirect_to user_path(current_user), alert:"存在しないユーザーです"
+          redirect_to root_path, alert:"存在しないユーザーです"
         end
       end
   end
@@ -45,6 +50,24 @@ class UsersController < ApplicationController
       end
     end
   end
+
+  def user_posts
+    @user = User.find(params[:id])
+    @posts = Post.where(user_id:@user).order(id: "DESC").page(params[:page])
+  end
+
+  def user_likes
+    @user = User.find(params[:id])
+    @like = Like.where(user_id:@user).order(id: "DESC").page(params[:page])
+  end
+
+  def user_comments
+    @user = User.find(params[:id])
+    @comments = PostComment.where(user_id:@user).order(id: "DESC").page(params[:page])
+  end
+
+  
+
 
   private
     def user_params

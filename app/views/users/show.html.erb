@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] %>
+	<div class="alert alert-danger col-xs-10 col-xs-offset-1 " role="alert"><%= flash[:notice] %></div>
+<% end %>
+
 <div class="col-xs-10 col-xs-offset-1 user-deta">
 	<div class="col-xs-3 user-image">
         <%= attachment_image_tag @user, :profile_image,:fill, 100, 100, format: 'jpg', fallback: "no_image_100.jpg", :size => "200x200" %>
@@ -38,8 +41,7 @@
 				    	<h3><%=link_to post.title,post %></h3>
 				    </div>
 				    <p>by <%= post.user.name %>  
-				    	<br><%= post.likes_count %>人がコピー！ 
-				    	<br>at <%= post.created_at.strftime("%Y年%m月%d日%H時%M分") %></p>
+				    	<%= post.likes_count %>人がコピー！ at <%= post.created_at.strftime("%Y年%m月%d日") %></p>
 				    <span class="glyphicon glyphicon-tags" aria-hidden="true">
 					   	<% post.tags.each do |tag| %>
 				    		<div class="label label-info"><%= tag.name %></div>
@@ -56,7 +58,7 @@
 				    <div class="p-title">
 				    	<h3><%=link_to post.title,post %></h3>
 				    </div>
-				    <p>by <%= post.user.name %>  <%= post.likes_count %>いいね！ at <%= post.created_at.strftime("%Y年%m月%d日%H時%M分") %></p>
+				    <p>by <%= post.user.name %>  <%= post.likes_count %>いいね！ at <%= post.created_at.strftime("%Y年%m月%d日") %></p>
 				   	<span class="glyphicon glyphicon-tags" aria-hidden="true">
 				    	<% post.tags.each do |tag| %>
 				    		<div class="label label-info"><%= tag.name %></div>
@@ -65,16 +67,34 @@
 			  	</div>
 			<% end %>
 		<% end %>
-
-		<%= paginate @posts, class: "pagenate" %>
+		<div class="text-center button">
+			<%= link_to "もっと見る" , user_posts_path(@user), class:"btn btn-success" %>
+		</div>
+	<h2 class="page-header "><%=@user.name %>さんのいいねしたページ</h2>
+		<% @like.each do |like| %>
+	    	<div class="p-item">
+			    <div class="p-title">
+			    	<h3><%=link_to like.post.title,post_path(like.post) %></h3>
+			    </div>
+			    <p>by <%= like.post.user.name %>  <%= like.post.likes_count %>いいね！ at <%= like.post.created_at.strftime("%Y年%m月%d日") %></p>
+			    <span class="glyphicon glyphicon-tags" aria-hidden="true">
+				    <% like.post.tags.each do |tag| %>
+					    <div class="label label-info"><%= tag.name %></div>
+					<% end %>
+				</span>
+		  	</div>
+		<% end %>
+		<div class="text-center button">
+			<%= link_to "もっと見る" , user_likes_path(@user), class:"btn btn-success" %>
+		</div>
 	<h2 class="page-header "><%=@user.name %>さんのメモ</h2>
 	
 	    <% @comments.each do |comments| %>
 	    	<div class="p-item">
 			    <div class="p-title">
-			    	<h3><%=link_to comments.post.title %></h3>
+			    	<h3><%=link_to comments.post.title,post_path(comments.post) %></h3>
 			    </div>
-			    <p>by <%= comments.post.user.name %>  <%= comments.post.likes_count %>いいね！ at <%= comments.post.created_at.strftime("%Y年%m月%d日%H時%M分") %></p>
+			    <p>by <%= comments.post.user.name %>  <%= comments.post.likes_count %>いいね！ at <%= comments.post.created_at.strftime("%Y年%m月%d日") %></p>
 			    <span class="glyphicon glyphicon-tags" aria-hidden="true">
 				    <% comments.post.tags.each do |tag| %>
 					    <div class="label label-info"><%= tag.name %></div>
@@ -82,7 +102,9 @@
 				</span>
 		  	</div>
 		<% end %>
-		<%= paginate @comments, class: "pagenate" %>
+		<div class="text-center button">
+			<%= link_to "もっと見る" , user_comments_path(@user), class:"btn btn-success" %>
+		</div>
 </div>
 <div class="col-xs-12 footer-space"></div>
 

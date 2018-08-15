@@ -7,7 +7,7 @@ class AdminPageController < ApplicationController
   end
 
   def users
-  	@users = User.all
+  	@users = User.all.order(id: "DESC").page(params[:page]).per(10)
   end
 
   def tags
