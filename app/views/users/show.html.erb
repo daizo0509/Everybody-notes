@@ -41,7 +41,7 @@
 				    	<h3><%=link_to post.title,post %></h3>
 				    </div>
 				    <p>by <%= post.user.name %>  
-				    	<%= post.likes_count %>人がコピー！ at <%= post.created_at.strftime("%Y年%m月%d日") %></p>
+				    	<%= post.likes_count %>人がお気にり！ at <%= post.created_at.strftime("%Y年%m月%d日") %></p>
 				    <span class="glyphicon glyphicon-tags" aria-hidden="true">
 					   	<% post.tags.each do |tag| %>
 				    		<div class="label label-info"><%= tag.name %></div>
@@ -76,7 +76,7 @@
 			    <div class="p-title">
 			    	<h3><%=link_to like.post.title,post_path(like.post) %></h3>
 			    </div>
-			    <p>by <%= like.post.user.name %>  <%= like.post.likes_count %>いいね！ at <%= like.post.created_at.strftime("%Y年%m月%d日") %></p>
+			    <p>by <%= like.post.user.name %>  <%= like.post.likes_count %>人がお気にいり！ at <%= like.post.created_at.strftime("%Y年%m月%d日") %></p>
 			    <span class="glyphicon glyphicon-tags" aria-hidden="true">
 				    <% like.post.tags.each do |tag| %>
 					    <div class="label label-info"><%= tag.name %></div>
@@ -94,7 +94,7 @@
 			    <div class="p-title">
 			    	<h3><%=link_to comments.post.title,post_path(comments.post) %></h3>
 			    </div>
-			    <p>by <%= comments.post.user.name %>  <%= comments.post.likes_count %>いいね！ at <%= comments.post.created_at.strftime("%Y年%m月%d日") %></p>
+			    <p>by <%= comments.post.user.name %>  <%= comments.post.likes_count %>人がお気に入り！ at <%= comments.post.created_at.strftime("%Y年%m月%d日") %></p>
 			    <span class="glyphicon glyphicon-tags" aria-hidden="true">
 				    <% comments.post.tags.each do |tag| %>
 					    <div class="label label-info"><%= tag.name %></div>
