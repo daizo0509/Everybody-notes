@@ -24,7 +24,7 @@
 			    <p>
 			    	by <%= link_to post.user.name,user_path(post.user), class:"user-name" %> 
 			    	at <%= post.created_at.strftime("%Y年%m月%d日") %>
-			    	<span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span><%= post.likes_count %>
+			    	<span class="glyphicon glyphicon-heart" aria-hidden="true"></span><%= post.likes_count %>
 			    	</p>
 			    <span class="glyphicon glyphicon-tags" aria-hidden="true">
 			    	<% post.tags.each do |tag| %>
