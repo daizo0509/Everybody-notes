@@ -1,8 +1,9 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
-<h1>Editing Post</h1>
 
-<%= render 'form', post: @post %>
+<div class= "col-xs-12 post-new">
+	<h2 class="page-header">ノートを編集！</h2>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+		<%= render 'form', post: @post %>
+	<div class="text-center">
+	<%= link_to "TOPに戻る" , root_path,class:"btn btn-primary" %>
+	</div>
+</div>
