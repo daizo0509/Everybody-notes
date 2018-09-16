@@ -3,7 +3,7 @@
 	<%= fields_for @tags do |tags| %>
   <div class="form-group">
     <%= f.label "タグ検索" %>
-    <%= f.search_field :name_cont, class: 'form-control',value: params.dig(:q, :name_cont) %>
+    <%= f.search_field :name_cont, class: 'form-control',value: params.dig(:q, :name_cont),placeholder:"カンマ区切りで複数検索できます" %>
   </div>
   <div class="actions"><%= f.submit "Search" %></div>
   	<% end %>
